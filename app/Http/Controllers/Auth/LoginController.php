@@ -26,10 +26,20 @@ class LoginController extends Controller
 
             PersonalAccessTokens::where('tokenable_id', $id)->delete();
 
-            $token = User::find($id)->createToken($email)->plainTextToken;
+            $user  = new User();
+            $token = $user->find($id)->createToken($email)->plainTextToken;
+            $user  = $user->find($id)->first();
+
+            $user = [
+                'name'       => $user->name,
+                'email'      => $user->email,
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at,
+            ];
 
             return ResponseHandler::json(
                 message: [
+                    'user'  => $user,
                     'token' => $token
                 ],
                 code: HttpCodes::$ok
