@@ -35,12 +35,12 @@ class LoginController extends Controller
                 'email'      => $user->email,
                 'created_at' => $user->created_at,
                 'updated_at' => $user->updated_at,
+                'token'      => $token
             ];
 
             return ResponseHandler::json(
                 message: [
-                    'user'  => $user,
-                    'token' => $token
+                    'user' => $user,
                 ],
                 code: HttpCodes::$ok
             );
