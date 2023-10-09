@@ -1,9 +1,9 @@
-* text=auto eol=lf
+* text=auto
 
 *.blade.php linguist-vendored
-*.css linguist-vendored
 *.html linguist-vendored
-*.md linguist-vendored
+*.css linguist-vendored
+*.md diff=markdown
 *.php linguist-vendored
 
 /.github export-ignore
