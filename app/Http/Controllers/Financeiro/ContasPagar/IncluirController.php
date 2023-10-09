@@ -44,4 +44,14 @@ class IncluirController extends Controller
 
         return ResponseHandler::json('', HttpCodes::$unprocessableContent);
     }
+
+    public function visualizar($id, ContasPagar $contasPagar)
+    {
+        return $contasPagar->where('id', $id)->select([
+            'valor',
+            'documento',
+            'observacao',
+            'created_at'
+        ])->first();
+    }
 }

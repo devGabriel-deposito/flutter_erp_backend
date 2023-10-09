@@ -11,9 +11,10 @@ Route::put('/redefine', [LoginController::class, 'redefine']); # /redefine
 Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('/financeiro')->group(function () {
         Route::prefix('/contas/pagar')->group(function () {
+            Route::get('/{id}', [IncluirController::class, 'visualizar']); # /financeiro/contas/pagar
+            Route::get('/', [IncluirController::class, 'listar']); # /financeiro/contas/pagar
             Route::post('/', [IncluirController::class, 'incluir']); # /financeiro/contas/pagar
             Route::delete('/{id}', [IncluirController::class, 'deletar']); # /financeiro/contas/pagar
-            Route::get('/listar', [IncluirController::class, 'listar']); # /financeiro/contas/pagar/listar
         });
     });
 });
