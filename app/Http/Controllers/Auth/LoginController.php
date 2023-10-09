@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\PersonalAccessTokens;
 use App\Models\User;
 use App\Http\HttpCodes;
 use Illuminate\Http\Request;
 use App\Http\ResponseHandler;
 use App\Http\Controllers\Controller;
+use App\Models\PersonalAccessTokens;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginCreateUserRequest;
 
@@ -63,6 +63,6 @@ class LoginController extends Controller
 
         if ($user) return ResponseHandler::json('Usuário criado!', HttpCodes::$created);
 
-        return ResponseHandler::json('', 500);
+        return ResponseHandler::json('', HttpCodes::$internalServerError);
     }
 }
