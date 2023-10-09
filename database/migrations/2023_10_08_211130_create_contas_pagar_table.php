@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('contas_pagar', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
-            $table->string('valor');
+            $table->double('valor');
             $table->string('documento')->nullable();
             $table->string('observacao')->nullable();
             $table->timestamps();
