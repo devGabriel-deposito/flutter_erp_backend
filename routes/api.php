@@ -12,6 +12,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('/financeiro')->group(function () {
         Route::prefix('/contas/pagar')->group(function () {
             Route::post('/', [IncluirController::class, 'incluir']); # /financeiro/contas/pagar
+            Route::delete('/{id}', [IncluirController::class, 'deletar']); # /financeiro/contas/pagar
+            Route::get('/listar', [IncluirController::class, 'listar']); # /financeiro/contas/pagar/listar
         });
     });
 });
